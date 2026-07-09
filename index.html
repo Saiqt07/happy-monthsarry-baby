@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy First Monthsary, Baby 🤍</title>
+  <meta name="description"
+    content="A heartfelt digital love letter for our first month together — one month down, a lifetime to go." />
+  <meta name="theme-color" content="#C8B6FF" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤍</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--              LOADING SCREEN                     -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="loading-screen" aria-live="polite">
+    <div class="loader-particles" id="loader-particles"></div>
+    <div class="loader-content">
+      <div class="loader-heart-wrap">
+        <div class="loader-heart">🤍</div>
+        <div class="loader-rings">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <p class="loader-title">Happy First Monthsary</p>
+      <p class="loader-subtitle">Preparing something special for you…</p>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar">
+          <div class="loader-bar-fill" id="loader-bar-fill"></div>
+        </div>
+        <span class="loader-percent" id="loader-percent">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--         CANVAS: PETALS + SPARKLES               -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <canvas id="petal-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--              CURSOR GLOW                        -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--         FLOATING MEMORY JAR                     -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="memory-jar" title="Click for a secret note 💌" aria-label="Memory Jar – click for a romantic note">
+    <div class="jar-icon">🫙</div>
+    <div class="jar-label">Memory Jar</div>
+  </div>
+  <div id="jar-note-popup" class="jar-popup" aria-live="polite"></div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--      MAIN WRAPPER (revealed after loading)      -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="site-wrapper" class="hidden">
+
+    <!-- ═══════════════════════ SECTION 1: HERO ══════════════════════ -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-animated-bg" aria-hidden="true">
+        <div class="hero-gradient-orb orb1"></div>
+        <div class="hero-gradient-orb orb2"></div>
+        <div class="hero-gradient-orb orb3"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-eyebrow animate-fade-up" style="--delay:0.2s">✦ A love letter just for you ✦</p>
+        <h1 class="hero-title animate-fade-up" style="--delay:0.5s">
+          Happy First Monthsary,<br />
+          <span class="hero-title-baby">Baby 🤍</span>
+        </h1>
+        <div class="hero-divider animate-fade-up" style="--delay:0.8s">
+          <span class="divider-star">✦</span>
+          <div class="divider-line"></div>
+          <span class="divider-star">✦</span>
+        </div>
+        <p class="hero-subtitle animate-fade-up" style="--delay:1s">
+          One month down.<br />
+          <em>A lifetime of choosing you to go.</em>
+        </p>
+        <button id="open-story-btn" class="cta-btn animate-fade-up" style="--delay:1.3s" aria-label="Open Our Story">
+          <span class="btn-inner">
+            <span class="btn-sparkle">✨</span>
+            Open Our Story
+            <span class="btn-sparkle">✨</span>
+          </span>
+          <div class="btn-glow"></div>
+        </button>
+        <div class="hero-scroll-hint animate-fade-up" style="--delay:1.7s" aria-hidden="true">
+          <span>scroll</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SECTION 2: WHAT THIS MONTH TAUGHT ME ════════ -->
+    <section id="lessons" class="section lessons-section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">✦ One Month Of Us ✦</p>
+          <h2 class="section-title">What This Month Taught Me</h2>
+          <p class="section-desc">Every day with you has been a quiet revelation.</p>
+        </div>
+        <div class="lessons-grid" id="lessons-grid">
+          <!-- Cards generated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SECTION 3: 10 THINGS I LOVE ABOUT YOU ═══════ -->
+    <section id="love-things" class="section love-things-section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">✦ From My Heart ✦</p>
+          <h2 class="section-title">10 Things I Love About You</h2>
+          <p class="section-desc">Click each card to reveal what I love.</p>
+        </div>
+        <div class="carousel-wrapper">
+          <button class="carousel-arrow carousel-prev" id="love-prev" aria-label="Previous">‹</button>
+          <div class="love-carousel-track-wrap">
+            <div class="love-carousel-track" id="love-track">
+              <!-- Flip cards generated by JS -->
+            </div>
+          </div>
+          <button class="carousel-arrow carousel-next" id="love-next" aria-label="Next">›</button>
+        </div>
+        <div class="carousel-dots" id="love-dots"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SECTION 4: OUR FAVORITE MEMORIES ════════════ -->
+    <section id="memories" class="section memories-section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">✦ Moments Frozen In Time ✦</p>
+          <h2 class="section-title">Our Favorite Memories</h2>
+          <p class="section-desc">Every picture holds a piece of us.</p>
+        </div>
+        <div class="polaroid-gallery" id="polaroid-gallery">
+          <!-- Polaroids generated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SECTION 5: LITTLE REMINDERS ══════════════════ -->
+    <section id="reminders" class="section reminders-section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">✦ Always Remember ✦</p>
+          <h2 class="section-title">Little Reminders For You</h2>
+          <p class="section-desc">Save these in your heart for the harder days.</p>
+        </div>
+        <div class="reminders-grid" id="reminders-grid">
+          <!-- Cards generated by JS -->
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ═══════════════ SECTION 7: LETTER TO YOU ══════════════════════ -->
+    <section id="letter" class="section letter-section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">✦ Straight From My Heart ✦</p>
+          <h2 class="section-title">Letter To My Favorite Person</h2>
+        </div>
+        <div class="letter-paper reveal">
+          <div class="letter-paper-lines" aria-hidden="true"></div>
+          <div class="letter-stamp">💌</div>
+          <div class="letter-date-line">
+            <span class="letter-date-text" id="letter-date"></span>
+          </div>
+          <p class="letter-salutation">My dearest Baby,</p>
+          <div class="letter-body" id="letter-body">
+            <!-- Typewriter text output -->
+          </div>
+          <div class="letter-signature">
+            <p>Forever and always yours,</p>
+            <p class="letter-sig-name">Your Lucypearl 🤍</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SECTION 8: EXCITED FOR OUR FUTURE ════════════ -->
+    <section id="future" class="section future-section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">✦ Everything Ahead Of Us ✦</p>
+          <h2 class="section-title">Reasons I'm Excited For Our Future</h2>
+          <p class="section-desc">The best chapters haven't been written yet.</p>
+        </div>
+        <div class="future-timeline" id="future-timeline">
+          <!-- Timeline items generated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SECTION 9: ONE LAST CLICK ════════════════════ -->
+    <section id="last-click" class="section last-click-section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">✦ One More Thing ✦</p>
+          <h2 class="section-title">One Last Click ❤️</h2>
+        </div>
+        <div class="last-click-content reveal">
+          <button id="reminder-btn" class="reminder-btn" aria-label="Click for a reminder">
+            <span class="reminder-btn-text">Click if you need a reminder.</span>
+            <div class="reminder-btn-glow"></div>
+          </button>
+          <div id="reminder-reveal" class="reminder-reveal hidden" aria-live="polite">
+            <div class="reminder-lines">
+              <p class="reminder-line" style="--i:0">No matter how many months pass…</p>
+              <p class="reminder-line" style="--i:1">I'll never stop choosing you.</p>
+              <p class="reminder-line" style="--i:2">I'll never stop learning how to love you better.</p>
+              <p class="reminder-line" style="--i:3">I'll never stop appreciating the little things about you.</p>
+              <p class="reminder-line" style="--i:4">Distance will never change the fact that you're the person I want
+                to come home to.</p>
+              <p class="reminder-line" style="--i:5">Thank you for trusting me with your heart.</p>
+              <p class="reminder-line" style="--i:6">Happy First Monthsary, Baby.</p>
+              <p class="reminder-line" style="--i:7">I love you more than words can explain.</p>
+              <p class="reminder-line heart-line" style="--i:8">🤍</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ═══════════════ CONSTELLATION SKY ════════════════════════════ -->
+    <section id="constellation" class="section constellation-section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">✦ Written In The Stars ✦</p>
+          <h2 class="section-title">Our Constellation</h2>
+          <p class="section-desc">Click the stars to connect them into a heart.</p>
+        </div>
+        <canvas id="star-canvas" aria-label="Interactive star constellation" role="img"></canvas>
+        <p class="constellation-hint" id="constellation-hint">Click the stars ✦</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════ LAVENDER FIELD FINALE ════════════════════════ -->
+    <section id="finale" class="section finale-section">
+      <canvas id="field-canvas" aria-hidden="true"></canvas>
+      <div class="finale-overlay"></div>
+      <div class="finale-content">
+        <p class="finale-text reveal-finale" id="finale-text-1">"If I had to choose all over again,</p>
+        <p class="finale-text reveal-finale" id="finale-text-2">I'd still choose you.</p>
+        <p class="finale-text reveal-finale" id="finale-text-3">Every single time."</p>
+        <div class="finale-divider reveal-finale" id="finale-div">✦ ✦ ✦</div>
+        <p class="finale-sub reveal-finale" id="finale-text-4">Happy First Monthsary, Baby. 🤍</p>
+      </div>
+    </section>
+
+  </div><!-- end #site-wrapper -->
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
